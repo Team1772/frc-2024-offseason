@@ -1,12 +1,12 @@
-package frc.robot.commands.swervedrive;
+package frc.robot.commands.intake;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.IntakeJointSubsystem;
+import frc.robot.subsystems.intake.IntakeJointSubsystem;
 
-public class IntakeJointAscend extends Command {
+public class IntakeJointDescend extends Command {
   private final IntakeJointSubsystem m_IntakeJointSubsystem;
 
-  public IntakeJointAscend(IntakeJointSubsystem intakeJointSubsystem) {
+  public IntakeJointDescend(IntakeJointSubsystem intakeJointSubsystem) {
     m_IntakeJointSubsystem = intakeJointSubsystem;
 
     addRequirements(intakeJointSubsystem);
@@ -19,7 +19,7 @@ public class IntakeJointAscend extends Command {
 
   @Override
   public void execute() {
-    m_IntakeJointSubsystem.setMotors(10);
+    m_IntakeJointSubsystem.setMotors(-10);
   }
 
   @Override
