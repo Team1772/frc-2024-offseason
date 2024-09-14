@@ -5,6 +5,8 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.Filesystem;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.buttonBindings.DriverButtonBindings;
 import frc.robot.buttonBindings.OperatorButtonBindings;
@@ -14,7 +16,7 @@ import frc.robot.subsystems.swervedrive.SwerveSubsystem;
 import java.io.File;
 
 public class RobotContainer {
-
+  SendableChooser<Command> chooser;
   private DriverButtonBindings driver;
   private OperatorButtonBindings operator;
   private final IntakeJointSubsystem intakeJointSubsystem;
@@ -23,6 +25,11 @@ public class RobotContainer {
       "swerve"));
 
   public RobotContainer() {
+    
+    chooser = new SendableChooser<>();
+    chooser.addOption("Curva", drivebase.getAutonomousCommand("Curva"));
+    chooser.addOption("Reto", drivebase.getAutonomousCommand("Reto"));
+    Shuffleboard.getTab("Autonomous").add(chooser);
 
     intakeJointSubsystem = new IntakeJointSubsystem();
     intakeEaterSubsystem = new IntakeEaterSubsystem();
@@ -40,7 +47,7 @@ public class RobotContainer {
   }
 
   public Command getAutonomousCommand() {
-    return drivebase.getAutonomousCommand("autoarthur");
+    return chooser.getSelected();
   }
 
   public void setMotorBrake(boolean brake) {

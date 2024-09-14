@@ -7,7 +7,8 @@ public class IntakeEatsNoteComand extends Command {
 
     private final IntakeEaterSubsystem intakeEaterSubsystem;
 
-    public IntakeEatsNoteComand(IntakeEaterSubsystem intakeEaterSubsystem) {
+    public 
+    IntakeEatsNoteComand(IntakeEaterSubsystem intakeEaterSubsystem) {
         this.intakeEaterSubsystem = intakeEaterSubsystem;
         addRequirements(intakeEaterSubsystem);
     }
@@ -19,7 +20,7 @@ public class IntakeEatsNoteComand extends Command {
 
     @Override
     public void execute(){
-        intakeEaterSubsystem.setMotors(24);
+        intakeEaterSubsystem.setMotors(50);
     }
 
     @Override

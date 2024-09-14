@@ -6,8 +6,8 @@ import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class IntakeJointSubsystem extends SubsystemBase {
-  VictorSPX leftMotor = new VictorSPX(8);
-  VictorSPX rightMotor = new VictorSPX(9);
+  VictorSPX leftMotor = new VictorSPX(13);
+  VictorSPX rightMotor = new VictorSPX(14);
 
   public IntakeJointSubsystem() {}
 

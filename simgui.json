@@ -64,6 +64,11 @@
       "window": {
         "visible": false
       }
+    },
+    "RoboRIO": {
+      "window": {
+        "visible": true
+      }
     }
   },
   "NTProvider": {
@@ -111,6 +116,9 @@
     }
   },
   "NetworkTables": {
+    "Persistent Values": {
+      "open": false
+    },
     "Retained Values": {
       "open": false
     },
@@ -118,8 +126,7 @@
       "Shuffleboard": {
         ".metadata": {
           "open": true
-        },
-        "open": true
+        }
       },
       "SmartDashboard": {
         "Field": {
@@ -133,6 +140,18 @@
     }
   },
   "NetworkTables Info": {
+    "Clients": {
+      "open": true
+    },
+    "Server": {
+      "Publishers": {
+        "open": true
+      },
+      "Subscribers": {
+        "open": true
+      },
+      "open": true
+    },
     "visible": true
   }
 }

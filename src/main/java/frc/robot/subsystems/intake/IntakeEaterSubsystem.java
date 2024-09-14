@@ -11,8 +11,8 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class IntakeEaterSubsystem extends SubsystemBase {
 
-    private final TalonSRX rightMotor = new TalonSRX(6);
-    private final VictorSPX leftMotor = new VictorSPX(7);
+    private final TalonSRX rightMotor = new TalonSRX(12);
+    private final VictorSPX leftMotor = new VictorSPX(11);
 
     public IntakeEaterSubsystem() {}
     

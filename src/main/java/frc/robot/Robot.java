@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import java.io.File;
 import java.io.IOException;
+import frc.robot.constants.DrivetrainConstants;
 
 import org.littletonrobotics.junction.LogFileUtil;
 import org.littletonrobotics.junction.LoggedRobot;
@@ -118,7 +119,7 @@ public class Robot extends LoggedRobot {
 
   @Override
   public void disabledPeriodic() {
-    if (disabledTimer.hasElapsed(Constants.DrivebaseConstants.WHEEL_LOCK_TIME)) {
+    if (disabledTimer.hasElapsed(DrivetrainConstants.Drivebase.WHEEL_LOCK_TIME)) {
       m_robotContainer.setMotorBrake(false);
       disabledTimer.stop();
     }
