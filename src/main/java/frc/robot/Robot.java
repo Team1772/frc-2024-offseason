@@ -156,7 +156,6 @@ public class Robot extends LoggedRobot {
       m_autonomousCommand.cancel();
     }
     CommandScheduler.getInstance().cancelAll();
-    m_robotContainer.setDriveMode();
     m_robotContainer.setMotorBrake(true);
   }
 

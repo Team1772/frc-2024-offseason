@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.Filesystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.buttonBindings.DriverButtonBindings;
 import frc.robot.buttonBindings.OperatorButtonBindings;
+import frc.robot.subsystems.intake.IntakeEaterSubsystem;
 import frc.robot.subsystems.intake.IntakeJointSubsystem;
 import frc.robot.subsystems.swervedrive.SwerveSubsystem;
 import java.io.File;
@@ -17,17 +18,20 @@ public class RobotContainer {
   private DriverButtonBindings driver;
   private OperatorButtonBindings operator;
   private final IntakeJointSubsystem intakeJointSubsystem;
+  private final IntakeEaterSubsystem intakeEaterSubsystem;
   private final SwerveSubsystem drivebase = new SwerveSubsystem(new File(Filesystem.getDeployDirectory(),
       "swerve"));
 
   public RobotContainer() {
 
     intakeJointSubsystem = new IntakeJointSubsystem();
+    intakeEaterSubsystem = new IntakeEaterSubsystem();
 
     this.driver = new DriverButtonBindings(drivebase);
-    this.operator = new OperatorButtonBindings(intakeJointSubsystem);
-
+    this.operator = new OperatorButtonBindings(intakeJointSubsystem, intakeEaterSubsystem);
+    
     configureBindings();
+
   }
 
   private void configureBindings() {
@@ -39,4 +43,7 @@ public class RobotContainer {
     return drivebase.getAutonomousCommand("autoarthur");
   }
 
+  public void setMotorBrake(boolean brake) {
+    drivebase.setMotorBrake(brake);
+  }
 }
