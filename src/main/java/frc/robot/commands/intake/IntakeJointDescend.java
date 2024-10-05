@@ -19,7 +19,7 @@ public class IntakeJointDescend extends Command {
 
   @Override
   public void execute() {
-    m_IntakeJointSubsystem.setMotors(-10);
+    m_IntakeJointSubsystem.setMotors(-5);
   }
 
   @Override

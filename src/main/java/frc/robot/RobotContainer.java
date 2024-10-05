@@ -10,6 +10,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.buttonBindings.DriverButtonBindings;
 import frc.robot.buttonBindings.OperatorButtonBindings;
+import frc.robot.constants.IndexerConstants;
+import frc.robot.subsystems.indexer.IndexerSubsystem;
 import frc.robot.subsystems.intake.IntakeEaterSubsystem;
 import frc.robot.subsystems.intake.IntakeJointSubsystem;
 import frc.robot.subsystems.swervedrive.SwerveSubsystem;
@@ -21,6 +23,7 @@ public class RobotContainer {
   private OperatorButtonBindings operator;
   private final IntakeJointSubsystem intakeJointSubsystem;
   private final IntakeEaterSubsystem intakeEaterSubsystem;
+  private final IndexerSubsystem indexerSubsystem;
   private final SwerveSubsystem drivebase = new SwerveSubsystem(new File(Filesystem.getDeployDirectory(),
       "swerve"));
 
@@ -33,9 +36,10 @@ public class RobotContainer {
 
     intakeJointSubsystem = new IntakeJointSubsystem();
     intakeEaterSubsystem = new IntakeEaterSubsystem();
+    indexerSubsystem = new IndexerSubsystem();
 
     this.driver = new DriverButtonBindings(drivebase);
-    this.operator = new OperatorButtonBindings(intakeJointSubsystem, intakeEaterSubsystem);
+    this.operator = new OperatorButtonBindings(intakeJointSubsystem, intakeEaterSubsystem, indexerSubsystem);
     
     configureBindings();
 
@@ -54,3 +58,4 @@ public class RobotContainer {
     drivebase.setMotorBrake(brake);
   }
 }
+
